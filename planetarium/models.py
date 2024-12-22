@@ -47,7 +47,11 @@ class ShowSession(models.Model):
 
 class Reservation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="reservations"
+    )
 
     def __str__(self):
         return str(self.created_at)
@@ -64,7 +68,7 @@ class Ticket(models.Model):
     reservation = models.ForeignKey(
         Reservation,
         on_delete=models.CASCADE,
-        related_name="users"
+        related_name="tickets"
     )
 
     def __str__(self):
