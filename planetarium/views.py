@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from planetarium.models import AstronomyShow
+from planetarium.serializers import AstronomyShowSerializer
+
+
+class AstronomyShowView(viewsets.ModelViewSet):
+    queryset = AstronomyShow.objects.prefetch_related("theme")
+    serializer_class = AstronomyShowSerializer
