@@ -44,6 +44,10 @@ class ShowSession(models.Model):
     )
     show_time = models.DateTimeField()
 
+    def __str__(self):
+        return self.astronomy_show.title + " " + str(self.show_time)
+
+
 
 class Reservation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
