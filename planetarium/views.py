@@ -3,6 +3,7 @@ from datetime import datetime
 from django.db.models import F, Count
 from rest_framework import viewsets, mixins
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
 from planetarium.models import (
@@ -12,6 +13,7 @@ from planetarium.models import (
     ShowSession,
     Reservation,
 )
+from planetarium.permissions import IsAdminOrIfAuthenticatedReadOnly
 
 from planetarium.serializers import (
     AstronomyShowSerializer,
@@ -34,6 +36,7 @@ class ShowThemeViewSet(
 ):
     queryset = ShowTheme.objects.all()
     serializer_class = ShowThemeSerializer
+    permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
 
 
 class PlanetariumDomeViewSet(
@@ -43,6 +46,7 @@ class PlanetariumDomeViewSet(
 ):
     queryset = PlanetariumDome.objects.all()
     serializer_class = PlanetariumDomeSerializer
+    permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
 
 
 class AstronomyShowViewSet(
@@ -53,6 +57,7 @@ class AstronomyShowViewSet(
 ):
     queryset = AstronomyShow.objects.prefetch_related("theme")
     serializer_class = AstronomyShowSerializer
+    permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
 
     @staticmethod
     def _params_to_ints(params):
@@ -95,6 +100,7 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
         )
     )
     serializer_class = ShowSessionSerializer
+    permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
 
     def get_queryset(self):
         date = self.request.query_params.get("date")
@@ -130,6 +136,7 @@ class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
     pagination_class = ReservationPagination
+    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         return Reservation.objects.filter(user=self.request.user)
