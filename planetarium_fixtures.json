@@ -1,0 +1,338 @@
+[
+    {
+        "model": "user.user",
+        "pk": 1,
+        "fields": {
+            "username": "john_doe",
+            "password": "pbkdf2_sha256$260000$M4V2XfdHiBxF$VgdbJXw5P3mtqgW93uyfChBQeLBrQFDi/nZ9sRgXlZI=",
+            "email": "johndoe@example.com",
+            "first_name": "John",
+            "last_name": "Doe",
+            "is_active": true,
+            "is_staff": false,
+            "is_superuser": false
+        }
+    },
+    {
+        "model": "user.user",
+        "pk": 2,
+        "fields": {
+            "username": "alice_smith",
+            "password": "pbkdf2_sha256$260000$9wNVjvPffK7d$gJ0q74ZYPqDh9vLM0aYekHlWQtVEC0zEm7cX5roCMUQ=",
+            "email": "alicesmith@example.com",
+            "first_name": "Alice",
+            "last_name": "Smith",
+            "is_active": true,
+            "is_staff": false,
+            "is_superuser": false
+        }
+    },
+    {
+        "model": "user.user",
+        "pk": 3,
+        "fields": {
+            "username": "bob_jones",
+            "password": "pbkdf2_sha256$260000$om9ihsdhsOIk$lTksDBtVIAptWV6b+d5mUeXcVfe5gzwmFeOthwErmyc=",
+            "email": "bobjones@example.com",
+            "first_name": "Bob",
+            "last_name": "Jones",
+            "is_active": true,
+            "is_staff": false,
+            "is_superuser": false
+        }
+    },
+    {
+        "model": "user.user",
+        "pk": 4,
+        "fields": {
+            "username": "charlie_brown",
+            "password": "pbkdf2_sha256$260000$ji2vD81DoTZH$tnHJrYysMyDGGAmxgzoSjsLKj3AZ6vRHzHuqcc6nM2g=",
+            "email": "charliebrown@example.com",
+            "first_name": "Charlie",
+            "last_name": "Brown",
+            "is_active": true,
+            "is_staff": false,
+            "is_superuser": false
+        }
+    },
+    {
+        "model": "user.user",
+        "pk": 5,
+        "fields": {
+            "username": "dave_white",
+            "password": "pbkdf2_sha256$260000$TxUb8Xg7KNw8$VhpcBkZJ5WG0jbhwS0rjHsMNZXZn4w5cqvftU3HeDJw=",
+            "email": "davewhite@example.com",
+            "first_name": "Dave",
+            "last_name": "White",
+            "is_active": true,
+            "is_staff": false,
+            "is_superuser": false
+        }
+    },
+
+    {
+        "model": "planetarium.planetariumdome",
+        "pk": 1,
+        "fields": {
+            "name": "Main Dome",
+            "rows": 20,
+            "seats_in_row": 10
+        }
+    },
+    {
+        "model": "planetarium.planetariumdome",
+        "pk": 2,
+        "fields": {
+            "name": "Small Dome",
+            "rows": 15,
+            "seats_in_row": 8
+        }
+    },
+    {
+        "model": "planetarium.planetariumdome",
+        "pk": 3,
+        "fields": {
+            "name": "Galaxy Dome",
+            "rows": 25,
+            "seats_in_row": 12
+        }
+    },
+    {
+        "model": "planetarium.planetariumdome",
+        "pk": 4,
+        "fields": {
+            "name": "Astro Dome",
+            "rows": 18,
+            "seats_in_row": 15
+        }
+    },
+    {
+        "model": "planetarium.planetariumdome",
+        "pk": 5,
+        "fields": {
+            "name": "Nebula Dome",
+            "rows": 22,
+            "seats_in_row": 10
+        }
+    },
+
+    {
+        "model": "planetarium.showtheme",
+        "pk": 1,
+        "fields": {
+            "name": "Solar System"
+        }
+    },
+    {
+        "model": "planetarium.showtheme",
+        "pk": 2,
+        "fields": {
+            "name": "Black Holes"
+        }
+    },
+    {
+        "model": "planetarium.showtheme",
+        "pk": 3,
+        "fields": {
+            "name": "Star Clusters"
+        }
+    },
+    {
+        "model": "planetarium.showtheme",
+        "pk": 4,
+        "fields": {
+            "name": "Exoplanets"
+        }
+    },
+    {
+        "model": "planetarium.showtheme",
+        "pk": 5,
+        "fields": {
+            "name": "Galaxies"
+        }
+    },
+
+    {
+        "model": "planetarium.astronomyshow",
+        "pk": 1,
+        "fields": {
+            "title": "Explore the Solar System",
+            "description": "A journey through the solar system with interactive visuals.",
+            "theme": [1]
+        }
+    },
+    {
+        "model": "planetarium.astronomyshow",
+        "pk": 2,
+        "fields": {
+            "title": "Mysteries of Black Holes",
+            "description": "A detailed look at the formation and behavior of black holes.",
+            "theme": [2]
+        }
+    },
+    {
+        "model": "planetarium.astronomyshow",
+        "pk": 3,
+        "fields": {
+            "title": "The Wonders of Star Clusters",
+            "description": "Discover the beauty and mystery of star clusters.",
+            "theme": [3]
+        }
+    },
+    {
+        "model": "planetarium.astronomyshow",
+        "pk": 4,
+        "fields": {
+            "title": "Exoplanet Exploration",
+            "description": "Exploring planets beyond our solar system.",
+            "theme": [4]
+        }
+    },
+    {
+        "model": "planetarium.astronomyshow",
+        "pk": 5,
+        "fields": {
+            "title": "The Expanding Universe",
+            "description": "Learn about the vastness of galaxies and the universe.",
+            "theme": [5]
+        }
+    },
+
+    {
+        "model": "planetarium.showsession",
+        "pk": 1,
+        "fields": {
+            "astronomy_show": 1,
+            "planetarium_dome": 1,
+            "show_time": "2024-12-25T20:00:00Z"
+        }
+    },
+    {
+        "model": "planetarium.showsession",
+        "pk": 2,
+        "fields": {
+            "astronomy_show": 2,
+            "planetarium_dome": 2,
+            "show_time": "2024-12-26T18:00:00Z"
+        }
+    },
+    {
+        "model": "planetarium.showsession",
+        "pk": 3,
+        "fields": {
+            "astronomy_show": 3,
+            "planetarium_dome": 3,
+            "show_time": "2024-12-27T20:00:00Z"
+        }
+    },
+    {
+        "model": "planetarium.showsession",
+        "pk": 4,
+        "fields": {
+            "astronomy_show": 4,
+            "planetarium_dome": 4,
+            "show_time": "2024-12-28T20:00:00Z"
+        }
+    },
+    {
+        "model": "planetarium.showsession",
+        "pk": 5,
+        "fields": {
+            "astronomy_show": 5,
+            "planetarium_dome": 5,
+            "show_time": "2024-12-29T20:00:00Z"
+        }
+    },
+
+    {
+        "model": "planetarium.reservation",
+        "pk": 1,
+        "fields": {
+            "created_at": "2024-12-22T14:00:00Z",
+            "user": 1
+        }
+    },
+    {
+        "model": "planetarium.reservation",
+        "pk": 2,
+        "fields": {
+            "created_at": "2024-12-22T14:30:00Z",
+            "user": 2
+        }
+    },
+    {
+        "model": "planetarium.reservation",
+        "pk": 3,
+        "fields": {
+            "created_at": "2024-12-22T15:00:00Z",
+            "user": 3
+        }
+    },
+    {
+        "model": "planetarium.reservation",
+        "pk": 4,
+        "fields": {
+            "created_at": "2024-12-22T15:30:00Z",
+            "user": 4
+        }
+    },
+    {
+        "model": "planetarium.reservation",
+        "pk": 5,
+        "fields": {
+            "created_at": "2024-12-22T16:00:00Z",
+            "user": 5
+        }
+    },
+
+    {
+        "model": "planetarium.ticket",
+        "pk": 1,
+        "fields": {
+            "row": 1,
+            "seat": 1,
+            "show_session": 1,
+            "reservation": 1
+        }
+    },
+    {
+        "model": "planetarium.ticket",
+        "pk": 2,
+        "fields": {
+            "row": 1,
+            "seat": 2,
+            "show_session": 1,
+            "reservation": 1
+        }
+    },
+    {
+        "model": "planetarium.ticket",
+        "pk": 3,
+        "fields": {
+            "row": 1,
+            "seat": 3,
+            "show_session": 1,
+            "reservation": 1
+        }
+    },
+    {
+        "model": "planetarium.ticket",
+        "pk": 4,
+        "fields": {
+            "row": 1,
+            "seat": 4,
+            "show_session": 1,
+            "reservation": 1
+        }
+    },
+    {
+        "model": "planetarium.ticket",
+        "pk": 5,
+        "fields": {
+            "row": 1,
+            "seat": 5,
+            "show_session": 1,
+            "reservation": 1
+        }
+    }
+]
