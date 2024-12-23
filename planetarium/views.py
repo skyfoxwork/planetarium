@@ -1,7 +1,8 @@
 from datetime import datetime
 
 from django.db.models import F, Count
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins
+from rest_framework.viewsets import GenericViewSet
 
 from planetarium.models import (
     AstronomyShow,
@@ -25,7 +26,11 @@ from planetarium.serializers import (
 )
 
 
-class ShowThemeViewSet(viewsets.ModelViewSet):
+class ShowThemeViewSet(
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet,
+):
     queryset = ShowTheme.objects.all()
     serializer_class = ShowThemeSerializer
 
