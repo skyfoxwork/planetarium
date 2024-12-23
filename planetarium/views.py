@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db.models import F, Count
 from rest_framework import viewsets
 
@@ -78,6 +80,21 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
         )
     )
     serializer_class = ShowSessionSerializer
+
+    def get_queryset(self):
+        date = self.request.query_params.get("date")
+        show_id_str = self.request.query_params.get("show")
+
+        queryset = self.queryset
+
+        if date:
+            date = datetime.strptime(date, "%Y-%m-%d").date()
+            queryset = queryset.filter(show_time__date=date)
+
+        if show_id_str:
+            queryset = queryset.filter(astronomy_show_id=int(show_id_str))
+
+        return queryset
 
     def get_serializer_class(self):
         if self.action == "list":
