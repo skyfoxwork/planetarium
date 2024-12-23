@@ -44,7 +44,9 @@ class PlanetariumDomeViewSet(
     serializer_class = PlanetariumDomeSerializer
 
 
-class AstronomyShowViewSet(viewsets.ModelViewSet):
+class AstronomyShowViewSet(
+    viewsets.ModelViewSet
+):
     queryset = AstronomyShow.objects.prefetch_related("theme")
     serializer_class = AstronomyShowSerializer
 
