@@ -2,6 +2,8 @@ from django.conf import settings
 from django.db import models
 from rest_framework.exceptions import ValidationError
 
+from planetarium.utils import astronomy_show_image_path
+
 
 class PlanetariumDome(models.Model):
     name = models.CharField(max_length=255)
@@ -26,7 +28,8 @@ class ShowTheme(models.Model):
 class AstronomyShow(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    theme = models.ManyToManyField(ShowTheme)
+    theme = models.ManyToManyField(ShowTheme, blank=True)
+    image = models.ImageField(null=True, upload_to=astronomy_show_image_path)
 
     def __str__(self):
         return self.title
@@ -47,7 +50,6 @@ class ShowSession(models.Model):
 
     def __str__(self):
         return self.astronomy_show.title + " " + str(self.show_time)
-
 
 
 class Reservation(models.Model):
