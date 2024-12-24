@@ -167,6 +167,26 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
 
         return ShowSessionSerializer
 
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                "show",
+                type=OpenApiTypes.INT,
+                description="Filter by show id (ex. ?show=2)",
+            ),
+            OpenApiParameter(
+                "date",
+                type=OpenApiTypes.DATE,
+                description=(
+                    "Filter by datetime of ShowSession "
+                    "(ex. ?date=2022-10-23)"
+                ),
+            ),
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
 
 class ReservationPagination(PageNumberPagination):
     page_size = 10
