@@ -32,12 +32,13 @@ class AstronomyShowSerializer(serializers.ModelSerializer):
             "title",
             "theme",
             "description",
-            # "image",
         )
 
 
 class AstronomyShowListSerializer(AstronomyShowSerializer):
-    theme = serializers.SlugRelatedField(many=True, read_only=True, slug_field="name")
+    theme = serializers.SlugRelatedField(
+        many=True, read_only=True, slug_field="name"
+    )
 
     class Meta:
         model = AstronomyShow
@@ -78,6 +79,7 @@ class ShowSessionSerializer(serializers.ModelSerializer):
             "planetarium_dome",
             "show_time",
         )
+
 
 class ShowSessionListSerializer(ShowSessionSerializer):
     astronomy_show_title = serializers.CharField(

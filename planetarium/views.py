@@ -121,7 +121,8 @@ class AstronomyShowViewSet(
             OpenApiParameter(
                 "title",
                 type=OpenApiTypes.STR,
-                description="Filter by astronomy show title (ex. ?title=title_name)",
+                description="Filter by astronomy show title "
+                            "(ex. ?title=title_name)",
             ),
         ]
     )
@@ -135,7 +136,8 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
         .select_related("astronomy_show", "planetarium_dome")
         .annotate(
             tickets_available=(
-                F("planetarium_dome__rows") * F("planetarium_dome__seats_in_row")
+                F("planetarium_dome__rows")
+                * F("planetarium_dome__seats_in_row")
                 - Count("tickets")
             )
         )
