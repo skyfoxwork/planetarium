@@ -182,12 +182,10 @@ class AstronomyShowImageUploadTests(TestCase):
     def setUp(self):
         self.client = APIClient()
         self.user = get_user_model().objects.create_superuser(
-            # "admin@admin.com", "password"
             "user@user.com", "password"
         )
         self.client.force_authenticate(self.user)
         self.astronomy_show = sample_astronomy_show()
-        # self.astronomy_show_session = sample_astronomy_show_session(astronomy_show=self.astronomy_show)
 
     def tearDown(self):
         self.astronomy_show.image.delete()
