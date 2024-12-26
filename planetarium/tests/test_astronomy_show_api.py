@@ -156,9 +156,9 @@ class AdminAstronomyShowApiTests(TestCase):
         res = self.client.post(ASTRONOMY_SHOW_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
-        movie = AstronomyShow.objects.get(id=res.data["id"])
+        astronomy_show = AstronomyShow.objects.get(id=res.data["id"])
         for key in payload.keys():
-            self.assertEqual(payload[key], getattr(movie, key))
+            self.assertEqual(payload[key], getattr(astronomy_show, key))
 
     def test_create_astronomy_show_with_themes(self):
         theme1 = ShowTheme.objects.create(name="Theme 1")
@@ -171,8 +171,8 @@ class AdminAstronomyShowApiTests(TestCase):
         res = self.client.post(ASTRONOMY_SHOW_URL, payload)
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
 
-        movie = AstronomyShow.objects.get(id=res.data["id"])
-        themes = movie.theme.all()
+        astronomy_show = AstronomyShow.objects.get(id=res.data["id"])
+        themes = astronomy_show.theme.all()
         self.assertEqual(themes.count(), 2)
         self.assertIn(theme1, themes)
         self.assertIn(theme2, themes)
