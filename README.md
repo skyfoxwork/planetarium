@@ -139,4 +139,5 @@ http://localhost:8000/api/
 Swagger documentation is available at:
 ```shell
 http://localhost:8000/api/docs/
+http://localhost:8000/api/doc/swagger/
 ```
