@@ -3,7 +3,6 @@
         "model": "user.user",
         "pk": 1,
         "fields": {
-            "username": "john_doe",
             "password": "pbkdf2_sha256$260000$M4V2XfdHiBxF$VgdbJXw5P3mtqgW93uyfChBQeLBrQFDi/nZ9sRgXlZI=",
             "email": "johndoe@example.com",
             "first_name": "John",
@@ -17,7 +16,6 @@
         "model": "user.user",
         "pk": 2,
         "fields": {
-            "username": "alice_smith",
             "password": "pbkdf2_sha256$260000$9wNVjvPffK7d$gJ0q74ZYPqDh9vLM0aYekHlWQtVEC0zEm7cX5roCMUQ=",
             "email": "alicesmith@example.com",
             "first_name": "Alice",
@@ -31,7 +29,6 @@
         "model": "user.user",
         "pk": 3,
         "fields": {
-            "username": "bob_jones",
             "password": "pbkdf2_sha256$260000$om9ihsdhsOIk$lTksDBtVIAptWV6b+d5mUeXcVfe5gzwmFeOthwErmyc=",
             "email": "bobjones@example.com",
             "first_name": "Bob",
@@ -45,7 +42,6 @@
         "model": "user.user",
         "pk": 4,
         "fields": {
-            "username": "charlie_brown",
             "password": "pbkdf2_sha256$260000$ji2vD81DoTZH$tnHJrYysMyDGGAmxgzoSjsLKj3AZ6vRHzHuqcc6nM2g=",
             "email": "charliebrown@example.com",
             "first_name": "Charlie",
@@ -59,7 +55,32 @@
         "model": "user.user",
         "pk": 5,
         "fields": {
-            "username": "dave_white",
+            "password": "pbkdf2_sha256$870000$P1CGEOzoq2tTUwobFCxdsN$uO3qhkkyWVAd43jKqgGowjY19t3Xhgp6+x80zlp42BE=",
+            "email": "user@example.com",
+            "first_name": "user_first",
+            "last_name": "user_last",
+            "is_active": true,
+            "is_staff": false,
+            "is_superuser": false
+        }
+    },
+    {
+        "model": "user.user",
+        "pk": 6,
+        "fields": {
+            "password": "pbkdf2_sha256$870000$0iU1pAtvbIUB5rX7ALbtDq$UXA5t813YFxfAtgMoB6VA3+IY+Jh+7X1P3vnDyLEpGA=",
+            "email": "admin@example.com",
+            "first_name": "admin_first",
+            "last_name": "admin_last",
+            "is_active": true,
+            "is_staff": true,
+            "is_superuser": false
+        }
+    },
+    {
+        "model": "user.user",
+        "pk": 7,
+        "fields": {
             "password": "pbkdf2_sha256$260000$TxUb8Xg7KNw8$VhpcBkZJ5WG0jbhwS0rjHsMNZXZn4w5cqvftU3HeDJw=",
             "email": "davewhite@example.com",
             "first_name": "Dave",
