@@ -69,7 +69,7 @@ git clone -b develop https://github.com/skyfoxwork/planetarium.git
 cd planetarium
 ```
 
-5. Set up environment variables: Create a .env file in the root directory and add the following:
+5. Set up environment variables: Create a .env file in the root directory and add the following (use .env.sample):
 ```shell
 POSTGRES_DB=your_db_name
 POSTGRES_USER=your_db_user
@@ -85,7 +85,9 @@ docker-compose build
 docker-compose up
 ```
 
-7.Optional: Run  and create a superuser:
+7.Optional:
+
+Run  and create a superuser and fill database with data:
 ```shell
 docker ps
 ```
@@ -99,6 +101,11 @@ user:
 ```shell
 docker exec -it <CONTAINER ID> bash
 ```
+Create super user:
+```shell
+python manage.py createsuperuser
+```
+
 Fill database with data:
 ```shell
 python manage.py loaddata planetarium_fixture.json
