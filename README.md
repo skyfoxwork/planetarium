@@ -97,7 +97,7 @@ CONTAINER ID   IMAGE                COMMAND                  CREATED          ST
 d5b41340d460   planetarium-app      "sh -c 'python manag…"   14 seconds ago   Up 13 seconds   0.0.0.0:8000->8000/tcp   planetarium-app-1
 9d3467a13ee6   postgres:14-alpine   "docker-entrypoint.s…"   14 seconds ago   Up 13 seconds   0.0.0.0:5433->5432/tcp   planetarium-db-1
 ```
-user:
+use:
 ```shell
 docker exec -it <CONTAINER ID> bash
 ```
