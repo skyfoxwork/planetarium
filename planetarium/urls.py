@@ -27,6 +27,6 @@ router.register(
 router.register("show-sessions", ShowSessionViewSet, basename="show-session")
 router.register("reservations", ReservationViewSet, basename="reservation")
 
-urlpatterns = [path("", include(router.urls))]
+urlpatterns = router.urls
 
 app_name = "planetarium"
