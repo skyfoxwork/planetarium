@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.validators import MaxLengthValidator, MinLengthValidator
 from django.db import models
 from rest_framework.exceptions import ValidationError
 
@@ -6,7 +7,19 @@ from planetarium.utils import astronomy_show_image_path
 
 
 class PlanetariumDome(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(
+        max_length=255,
+        validators=[
+            MaxLengthValidator(
+                255,
+                "The planetarium name must not exceed 255 characters."
+            ),
+            MinLengthValidator(
+                1,
+                "The planetarium name cannot be empty."
+            )
+        ]
+    )
     rows = models.IntegerField()
     seats_in_row = models.IntegerField()
 
@@ -19,14 +32,38 @@ class PlanetariumDome(models.Model):
 
 
 class ShowTheme(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(
+        max_length=255,
+        validators=[
+            MaxLengthValidator(
+                255,
+                "The theme name must not exceed 255 characters."
+            ),
+            MinLengthValidator(
+                1,
+                "The theme name cannot be empty."
+            )
+        ]
+    )
 
     def __str__(self):
         return self.name
 
 
 class AstronomyShow(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(
+        max_length=255,
+        validators=[
+            MaxLengthValidator(
+                255,
+                "The astronomy show title must not exceed 255 characters."
+            ),
+            MinLengthValidator(
+                1,
+                "The astronomy show title cannot be empty."
+            )
+        ]
+    )
     description = models.TextField()
     theme = models.ManyToManyField(ShowTheme, blank=True)
     image = models.ImageField(null=True, upload_to=astronomy_show_image_path)
