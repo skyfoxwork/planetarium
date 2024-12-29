@@ -27,6 +27,37 @@ class PlanetariumDome(models.Model):
     def capacity(self):
         return self.rows * self.seats_in_row
 
+    @staticmethod
+    def validate_rows_and_seats(rows, seats_in_row):
+        if rows <= 0:
+            raise ValidationError(
+                {"rows": "The number of rows must be a positive integer."}
+            )
+        if seats_in_row <= 0:
+            raise ValidationError(
+                {"seats_in_row": "The number of seats per row must be a positive integer."}
+            )
+
+    def clean(self):
+        PlanetariumDome.validate_rows_and_seats(self.rows, self.seats_in_row)
+
+    def save(
+            self,
+            *args,
+            force_insert=False,
+            force_update=False,
+            using=None,
+            update_fields=None,
+    ):
+        self.full_clean()
+        return super(PlanetariumDome, self).save(
+            *args,
+            force_insert=force_insert,
+            force_update=force_update,
+            using=using,
+            update_fields=update_fields
+        )
+
     def __str__(self):
         return self.name
 
