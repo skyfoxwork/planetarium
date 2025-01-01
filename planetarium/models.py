@@ -96,7 +96,7 @@ class AstronomyShow(models.Model):
         ]
     )
     description = models.TextField()
-    theme = models.ManyToManyField(ShowTheme, blank=True)
+    theme = models.ManyToManyField(ShowTheme, blank=True, related_name="shows")
     image = models.ImageField(null=True, upload_to=astronomy_show_image_path)
 
     def __str__(self):
