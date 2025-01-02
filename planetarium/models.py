@@ -35,7 +35,12 @@ class PlanetariumDome(models.Model):
             )
         if seats_in_row <= 0:
             raise ValidationError(
-                {"seats_in_row": "The number of seats per row must be a positive integer."}
+                {
+                    "seats_in_row": (
+                        "The number of seats per row "
+                        "must be a positive integer."
+                    )
+                }
             )
 
     def clean(self):
