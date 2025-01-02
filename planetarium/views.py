@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import F, Count
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter, extend_schema
@@ -106,14 +107,17 @@ class AstronomyShowViewSet(
         permission_classes=[IsAdminUser],
     )
     def upload_image(self, request, pk=None):
-        astronomy_show = self.get_object()
-        serializer = self.get_serializer(astronomy_show, data=request.data)
+        try:
+            astronomy_show = self.get_object()
+            serializer = self.get_serializer(astronomy_show, data=request.data)
 
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
 
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except ObjectDoesNotExist:
+            return Response({"detail": "Astronomy show not found."}, status=status.HTTP_404_NOT_FOUND)
 
     @extend_schema(
         parameters=[
@@ -210,7 +214,10 @@ class ReservationViewSet(
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        return Reservation.objects.filter(user=self.request.user)
+        try:
+            return Reservation.objects.filter(user=self.request.user)
+        except ObjectDoesNotExist:
+            return Response({"detail": "User not found."}, status=status.HTTP_404_NOT_FOUND)
 
     def get_serializer_class(self):
         if self.action == "list":
