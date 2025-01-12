@@ -38,12 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     # third party app
     "rest_framework",
     "debug_toolbar",
     "drf_spectacular",
-
     # local app
     "planetarium",
     "user"
